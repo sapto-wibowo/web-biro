@@ -10,7 +10,7 @@ class ModelLayanan extends CI_Model
         $this->db->select('*');
         $this->db->from('tbl_layanan');
         $this->db->order_by('id_layanan', 'desc');
-        $this->db->where('statusHapus=1');
+        // $this->db->where('statusHapus=1');
         return $this->db->get()->result();
     }
 

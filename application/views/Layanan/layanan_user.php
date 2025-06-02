@@ -24,8 +24,6 @@
                     $no = 1;
                     foreach ($syarat as $key => $value) {
                         $mulai = $value->tanggal;
-                        $lama = $value->lama_waktu;
-                        $selesai = strtotime("+$lama days", $mulai)
                     ?>
                         <tr>
                             <td><?= $value->no_pengajuan ?></td>
@@ -33,7 +31,8 @@
                             <td><?= $value->jenis_layanan ?></td>
                             <td><?= $value->no_polisi ?></td>
                             <td><?php echo format_indo(date('Y-m-d', $value->tanggal)) ?></td>
-                            <td><?php echo format_indo(date('Y-m-d', $selesai)) ?></td>
+                            <td>Testing
+                            </td>
                             <td>Rp <?= $value->biaya ?></td>
                             <td><a href="<?= base_url('dokumen/dokumen/' . $value->id_syarat) ?>" target="_blank" class="btn btn-default btn-sm"><i class="fas fa-print"></i> Print</a></td>
                         </tr>

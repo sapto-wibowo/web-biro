@@ -38,6 +38,7 @@ class Syarat extends CI_Controller
     {
         $id_user = $this->input->post('nama_user');
         $id_layanan = $this->input->post('id_layanan');
+        $id_employee = $this->input->post('id_employee');
         $user = $this->ModelUser->Data($id_user);
         $id_wilayah = $user->id_wilayah;
         $data = array(
@@ -48,10 +49,11 @@ class Syarat extends CI_Controller
             'stnk' => $this->input->post('stnk'),
             'bpkb' => $this->input->post('bpkb'),
             'surat_kuasa' => $this->input->post('surat_kuasa'),
+            'no_polisi' => $this->input->post('no_polisi'),
             'status' => 0,
+            'id_employee' => $id_employee,
             'id_wilayah' => $id_wilayah,
-            'id_layanan' => $id_layanan,
-            'no_polisi' => $this->input->post('no_polisi')
+            'id_layanan' => $id_layanan
         );
         $this->ModelSyarat->add($data);
         $this->session->set_flashdata('pesan', 'Pengajuan Berhasil Ditambahkan!');
@@ -66,6 +68,7 @@ class Syarat extends CI_Controller
             'ktp' => $this->input->post('ktp'),
             'stnk' => $this->input->post('stnk'),
             'bpkb' => $this->input->post('bpkb'),
+            // 'no_polisi' => $this->input->post('no_polisi'),
             'surat_kuasa' => $this->input->post('surat_kuasa'),
         );
         $this->ModelSyarat->edit($data);

@@ -70,7 +70,7 @@ class Auth extends CI_Controller {
 			$password = $this->input->post('password');
 			$user = $this->db->get_where('tbl_user', ['username' => $username])->row_array();
 			if($user){
-				if($user['statusDelete'] == 1){
+				if($user['statusDelete'] == 0){
 					if(password_verify($password, $user['password'])) {
 						if($user['is_active'] == 1){
 							$this->userlogin->login($username);
